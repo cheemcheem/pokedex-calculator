@@ -1,0 +1,60 @@
+name: CD
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Test, Build, Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Start NPM Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{runner.os}}-node-${{hashFiles('**/package-lock.json')}}
+          restore-keys: |
+            ${{runner.os}}-node-
+
+      - name: Install Node Modules
+        run: npm ci
+
+      - name: Update SHA
+        run: echo $GITHUB_SHA > $GITHUB_WORKSPACE/src/_meta
+
+      - name: Build container image
+        run: docker build -t cheemcheem/pokedex-calculator:$(echo $GITHUB_SHA | head -c7) .
+
+      # - name: Login to Docker Hub
+      #   uses: docker/login-action@v1
+      #   with:
+      #     username: cheemcheem
+      #     password: ${{secrets.DOCKERHUB_TOKEN}}
+
+      # - name: Push image to Docker Container Registry
+      #   run: docker push cheemcheem/pokedex-calculator:$(echo $GITHUB_SHA | head -c7)
+
+      # - name: Install doctl
+      #   uses: digitalocean/action-doctl@v2
+      #   with:
+      #     token: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}
+
+      # - name: Update deployment file
+      #   run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<TAG>|'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yaml
+
+      # - name: Save DigitalOcean kubeconfig with short-lived credentials
+      #   run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{secrets.KUBERNETES_CONTEXT}}
+
+      # - name: Deploy to DigitalOcean Kubernetes
+      #   run: kubectl apply -f $GITHUB_WORKSPACE/config/deployment.yaml
+
+      # - name: Verify deployment
+      #   run: kubectl rollout status deployment pokedex-calculator

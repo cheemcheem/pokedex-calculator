@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokedex-calculator-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pokedex-calculator
+  template:
+    metadata:
+      labels:
+        app: pokedex-calculator
+    spec:
+      containers:
+        - image: cheemcheem/pokedex-calculator:<TAG>
+          name: pokedex-calculator-container
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 30
+            failureThreshold: 1
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pokedex-calculator-service
+spec:
+  selector:
+    app: pokedex-calculator
+  type: ClusterIP
+  ports:
+    - name: pokedex-calculator-port
+      port: 80
