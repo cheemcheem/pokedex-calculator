@@ -35,7 +35,7 @@
     "prepare": "husky install",
     "lint": "eslint --ignore-path .gitignore --fix . && prettier --ignore-path .gitignore --write .",
     "lint:check": "eslint --ignore-path .gitignore --max-warnings 0 . && prettier --ignore-path .gitignore --check .",
-    "deploy": "gh-pages -b cheemcheem.github.io/pokedex-calculator -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
