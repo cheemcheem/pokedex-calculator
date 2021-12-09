@@ -1,0 +1,35 @@
+:root {
+  --pokemon-search-height: 40px;
+}
+
+#pokemonSearch {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  height: var(--pokemon-search-height);
+}
+
+#pokemonSearch > * {
+  font-size: x-large;
+}
+
+#pokemonSearch > input {
+  border: none;
+  width: 100%;
+  padding-left: 10px;
+}
+
+#pokemonSearch > button {
+  height: var(--pokemon-search-height);
+  width: var(--pokemon-search-height);
+  border: none;
+  border-radius: 20px;
+  background: none;
+}
+
+#pokemonSearch > button:focus,
+#pokemonSearch > button:active {
+  border: 1px solid black;
+  background: lightpink;
+  user-select: none;
+}

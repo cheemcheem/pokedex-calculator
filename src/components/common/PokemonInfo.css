@@ -1,0 +1,57 @@
+.pop-up-card {
+  position: fixed;
+  display: grid;
+  grid-template:
+    /* "name name name name pic pic . . . . close"
+    "num  num  num  num  evo evo . . . . ....."
+    ". . . . . evo evo . . . . ....."
+    ". . . . . evo evo . . . . ....."
+    ". . . . . evo evo . . . . ....."
+    ". . . . . evo evo . . . . ....."
+    ". . . . . evo evo . . . . ....."; */
+    "name close"
+    "num ..."
+    "evo evo"
+    "evo evo"
+    "evo evo"
+    "evo evo";
+
+  background-color: lightsalmon;
+  border-radius: 10px;
+  border: 2px solid salmon;
+
+  top: 15px;
+  left: 15px;
+  width: calc(100% - 60px);
+  height: calc(100% - 60px);
+
+  padding: 15px;
+}
+
+.pop-up-card > button.close {
+  font-size: larger;
+  grid-area: close;
+
+  background: none;
+
+  border: none;
+  padding: 5px;
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.pop-up-card > #pokemonName {
+  grid-area: name;
+}
+
+.pop-up-card > #pokemonNumber {
+  grid-area: num;
+}
+
+.pop-up-card > .evolutions {
+  grid-area: evo;
+}

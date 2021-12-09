@@ -1,0 +1,71 @@
+ol.pokemonList {
+  margin: 0;
+  padding-left: 0;
+}
+
+li.pokemonListItem {
+  list-style: none;
+  border-top: 2px solid black;
+  background-color: beige;
+
+  font-size: x-large;
+  height: 40px;
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li.pokemonListItem:first-of-type {
+  border-top: unset;
+}
+
+li.pokemonListItem:nth-child(even) {
+  background-color: pink;
+}
+
+li.pokemonListItem > button {
+  background: none;
+  border: none;
+
+  font-size: inherit;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+div.pokemonListMessage {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.checkbox-container {
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+}
+
+div.checkbox-visual-representation::after {
+  content: "⭕️";
+  font-size: larger;
+}
+
+.addToPokeDex:checked ~ div.checkbox-visual-representation::after {
+  content: "✅";
+}
+
+label.checkbox-label {
+  font-size: larger;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -100vw;
+}
