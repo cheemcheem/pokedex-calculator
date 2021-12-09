@@ -2,7 +2,7 @@
   "name": "pokedex-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://cheemcheem.github.io/pokedex-calculator",
+  "homepage": "https://cheemcheem.github.io/pokedex-calculator",
   "dependencies": {
     "@apollo/client": "^3.5.5",
     "@testing-library/jest-dom": "^5.16.0",
@@ -35,7 +35,7 @@
     "prepare": "husky install",
     "lint": "eslint --ignore-path .gitignore --fix . && prettier --ignore-path .gitignore --write .",
     "lint:check": "eslint --ignore-path .gitignore --max-warnings 0 . && prettier --ignore-path .gitignore --check .",
-    "deploy": "gh-pages -b main -d build"
+    "deploy": "gh-pages -b cheemcheem.github.io/pokedex-calculator -d build"
   },
   "eslintConfig": {
     "extends": [
