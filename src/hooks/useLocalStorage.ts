@@ -5,6 +5,7 @@ import {
   useState,
   useRef,
   useLayoutEffect,
+  useMemo,
 } from "react";
 import { isBrowser, noop } from "react-use/lib/misc/util";
 
@@ -25,18 +26,22 @@ const useLocalStorage = <T>(
   initialValue?: T,
   options?: parserOptions<T>
 ): [T | undefined, Dispatch<SetStateAction<T | undefined>>, () => void] => {
+  const deserializer = useMemo(
+    () =>
+      options
+        ? options.raw
+          ? (value: any) => value
+          : options.deserializer
+        : JSON.parse,
+    [options]
+  );
+
   if (!isBrowser) {
     return [initialValue as T, noop, noop];
   }
   if (!key) {
     throw new Error("useLocalStorage key may not be falsy");
   }
-
-  const deserializer = options
-    ? options.raw
-      ? (value: any) => value
-      : options.deserializer
-    : JSON.parse;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const initializer = useRef((key: string) => {

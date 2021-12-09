@@ -1,5 +1,5 @@
 # ------------  BASE   ------------
-FROM node AS base
+FROM node:lts AS base
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -14,9 +14,6 @@ COPY package*.json ./
 
 # Install node modules
 RUN npm set progress=false && npm config set depth 0
-RUN npm install --only=production
-
-# Install development node_modules as well
 RUN npm install
 
 # Copy app source code last for build efficiency as this changes the most
