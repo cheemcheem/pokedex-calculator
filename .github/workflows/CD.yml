@@ -24,8 +24,12 @@ jobs:
           restore-keys: |
             ${{runner.os}}-node-
 
+      - name: Audit for runtime vulnerabilities
+        run: npm audit --production
+
       - name: Install Node Modules
-        run: npm ci
+        # Skip build time audit
+        run: npm ci --no-audit
 
       - name: Update SHA
         run: echo $GITHUB_SHA > $GITHUB_WORKSPACE/src/_meta
