@@ -14,7 +14,7 @@ COPY package*.json ./
 
 # Install node modules
 RUN npm set progress=false && npm config set depth 0
-RUN npm install
+RUN npm ci --no-audit
 
 # Copy app source code last for build efficiency as this changes the most
 COPY ./src ./src

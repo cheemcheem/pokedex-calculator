@@ -1,10 +1,30 @@
-# Getting Started with Create React App
+[![CD](https://github.com/cheemcheem/pokedex-calculator/actions/workflows/CD.yml/badge.svg?branch=main)](https://github.com/cheemcheem/pokedex-calculator/actions/workflows/CD.yml)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PokéDex Calculator
 
-## Available Scripts
+A simple way to check how you are going to obtain the missing Pokémon in your Pokédex.
 
-In the project directory, you can run:
+Note: uses the PokéAPI GraphQL endpoint which has a hard limit of 100 calls/hour before your IP is blocked. To get around this, the API is only called once and all required data is cached to local storage using Apollo GraphQL.
+
+## Feature List
+
+| Status | Feature                                                                                            |
+| :----: | -------------------------------------------------------------------------------------------------- |
+|   ✅   | Allows you to note Pokémon you are missing from your PokéDex and check them off as you fill it up. |
+|   ✅   | Persists data on device even after refreshing the page                                             |
+|   ✅   | Shows a Pokémon's evolutions and evolution requirements                                            |
+|   ✅   | Select from the Sinnoh PokéDex                                                                     |
+|   ✅   | Looks passable on mobile devices                                                                   |
+|   ✅   | Bubblegum theme                                                                                    |
+|   ❌   | Select from any PokéDex                                                                            |
+|   ❌   | Looks passable on desktop devices                                                                  |
+|   ❌   | Accessibility concerns                                                                             |
+|   ❌   | Shows other information about Pokémon, e.g. picture, description                                   |
+|   ❌   | PWA support / offline usage                                                                        |
+|   ❌   | Can handle split evolutions                                                                        |
+|   ❌   | Refined UI                                                                                         |
+
+## Building / Testing
 
 ### `npm start`
 
@@ -28,19 +48,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
