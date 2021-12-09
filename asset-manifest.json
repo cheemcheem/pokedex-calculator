@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/pokedex-calculator/static/css/main.796c1a27.chunk.css",
+    "main.js": "/pokedex-calculator/static/js/main.f247afb0.chunk.js",
+    "main.js.map": "/pokedex-calculator/static/js/main.f247afb0.chunk.js.map",
+    "runtime-main.js": "/pokedex-calculator/static/js/runtime-main.21235d9e.js",
+    "runtime-main.js.map": "/pokedex-calculator/static/js/runtime-main.21235d9e.js.map",
+    "static/js/2.36ec2ea1.chunk.js": "/pokedex-calculator/static/js/2.36ec2ea1.chunk.js",
+    "static/js/2.36ec2ea1.chunk.js.map": "/pokedex-calculator/static/js/2.36ec2ea1.chunk.js.map",
+    "static/js/3.3e8dd1cd.chunk.js": "/pokedex-calculator/static/js/3.3e8dd1cd.chunk.js",
+    "static/js/3.3e8dd1cd.chunk.js.map": "/pokedex-calculator/static/js/3.3e8dd1cd.chunk.js.map",
+    "index.html": "/pokedex-calculator/index.html",
+    "static/css/main.796c1a27.chunk.css.map": "/pokedex-calculator/static/css/main.796c1a27.chunk.css.map",
+    "static/js/2.36ec2ea1.chunk.js.LICENSE.txt": "/pokedex-calculator/static/js/2.36ec2ea1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.21235d9e.js",
+    "static/js/2.36ec2ea1.chunk.js",
+    "static/css/main.796c1a27.chunk.css",
+    "static/js/main.f247afb0.chunk.js"
+  ]
+}
